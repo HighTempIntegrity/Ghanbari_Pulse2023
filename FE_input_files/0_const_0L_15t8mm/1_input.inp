@@ -1,0 +1,34 @@
+*Heading
+*Preprint, echo=NO, model=NO, history=NO, contact=NO
+** 
+** Part and Assembly
+** 
+*Include,input=1_mesh_0LT15_om40x35.inp
+** 
+** Materials
+** 
+*Include,input=1_material_constMS.inp
+**
+** Table Types
+**
+*Include,input=1_AM_tableTypes.inp
+**
+** Event Series
+**
+*EVENT SERIES, NAME = "Event_Series-Power" , TIME =TOTAL TIME, 
+	TYPE = "ABQ_AM.PowerMagnitude",
+	INPUT = "1_AM_laser_15t8mm.inp"
+**
+** Table Collections
+**
+*Include,input=1_AM_tableCollections.inp
+** 
+** PREDEFINED FIELDS
+** 
+** Name: Predefined Field-T0   Type: Temperature
+*Initial Conditions, type=TEMPERATURE
+Set-all, 25.
+** 
+** Steps
+** 
+*Include,input=1_steps.inp

@@ -1,0 +1,341 @@
+Script settings
+	seed: 256
+	plot_theme: notebook
+	csv_root: FE_CSV
+	pickle_root: FE_PICKLE_TRN_CONST
+	sample_root: SMP_PICKLE_CONST
+	laser_root: FE_LASER
+	save_FE_data: True
+	save_sampled_data: True
+	source_FE_data: pk_file
+	source_sampled_data: pk_file
+	time_file: 9_time_pulse.log
+	overview_file: 9_overview.txt
+	device_type: cuda
+	reproducible: True
+	plot_notebook: 3_jpy_plots.ipynb
+FE Sampler properties
+	target_FE_models: ['G00L8mm_HXTdep_1t2mm']
+	type: contour
+	time_subset: [(1e-06, 1000.0)]
+	space_subset: []
+	LT_range: []
+	test_ratio: 0.2
+	max_batch_size: 200000.0
+	contour:
+		aliasing_factor: [2, 5]
+		batch_size: [170000.0, 300000.0]
+Network architecture
+	model_type: geomtery
+	hidden_layers: 3
+	neurons: 24
+	activation: tanh
+	last_act: softplus
+	weight_seed: 256
+	pulse_length: 0.08
+	scale_type: constant
+	multi_model: False
+	time_filter:
+		cutoff: True
+		cutoff_start: -2e-05
+	space_filter:
+		x_dis: 2
+		y_dis: 2
+		z_dis: 1
+		cutoff: True
+		cutoff_value: 0.1
+Loss function properties
+	loss_type: MSE
+	model_evaluation_type: internal
+	model_type: geomtery
+	reg_power: 2
+	reg_factor: 0
+	ysymm:
+		factor: 0
+		x_bounds: [-2.0, 2.0]
+		z_bounds: [-1.0, 0.0]
+		t_bounds: [0.0, 1.0]
+		points_num: 10000.0
+		seed: 256
+Optimizer properties
+	algorithm: LBFGS
+	LBFGS:
+		learning_rate: 1
+		tolerance_grad: 1e-05
+		max_iter: 100
+	drop_last_batch: True
+	epochs: 250
+	batch_num: 5
+	max_loss_jump: 5
+	min_loss_change: 1e-08
+	scheduler_gamma: 0.8
+	patience: 6
+	save_dir_name: geom
+Restart options
+	restart_folder: []
+	load_model: True
+	load_optimizer: False
+Rounding precision
+	time: 8
+	space: 7
+Geometry training info
+	geom_training: True
+	pulse_tag: B3
+	aliasing_factor: [2, 5]
+	template_batch_size: [10000.0, 10000.0, 10000.0]
+	layers_M: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33]
+	layers_CS: [1, 5, 9, 13, 17, 21, 25, 29, 33]
+	layers_CE: [1, 3, 7, 11, 15, 19, 23, 27, 31, 33]
+	model_list:
+		FE model; G01L4mm_8t05mm_M_B3:
+			name: G01L4mm_8t05mm_M_B3
+			directory: run_G01L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G01L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.97), (2.25, 2, 0.039)]
+		FE model; G03L4mm_8t05mm_M_B3:
+			name: G03L4mm_8t05mm_M_B3
+			directory: run_G03L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G03L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.91), (2.25, 2, 0.09899999999999999)]
+		FE model; G05L4mm_8t05mm_M_B3:
+			name: G05L4mm_8t05mm_M_B3
+			directory: run_G05L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G05L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.85), (2.25, 2, 0.159)]
+		FE model; G07L4mm_8t05mm_M_B3:
+			name: G07L4mm_8t05mm_M_B3
+			directory: run_G07L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G07L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.79), (2.25, 2, 0.219)]
+		FE model; G09L4mm_8t05mm_M_B3:
+			name: G09L4mm_8t05mm_M_B3
+			directory: run_G09L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G09L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.73), (2.25, 2, 0.279)]
+		FE model; G11L4mm_8t05mm_M_B3:
+			name: G11L4mm_8t05mm_M_B3
+			directory: run_G11L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G11L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.67), (2.25, 2, 0.33899999999999997)]
+		FE model; G13L4mm_8t05mm_M_B3:
+			name: G13L4mm_8t05mm_M_B3
+			directory: run_G13L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G13L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.61), (2.25, 2, 0.399)]
+		FE model; G15L4mm_8t05mm_M_B3:
+			name: G15L4mm_8t05mm_M_B3
+			directory: run_G15L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G15L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.55), (2.25, 2, 0.45899999999999996)]
+		FE model; G17L4mm_8t05mm_M_B3:
+			name: G17L4mm_8t05mm_M_B3
+			directory: run_G17L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G17L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.49), (2.25, 2, 0.519)]
+		FE model; G19L4mm_8t05mm_M_B3:
+			name: G19L4mm_8t05mm_M_B3
+			directory: run_G19L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G19L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.43000000000000005), (2.25, 2, 0.579)]
+		FE model; G21L4mm_8t05mm_M_B3:
+			name: G21L4mm_8t05mm_M_B3
+			directory: run_G21L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G21L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.37), (2.25, 2, 0.639)]
+		FE model; G23L4mm_8t05mm_M_B3:
+			name: G23L4mm_8t05mm_M_B3
+			directory: run_G23L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G23L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.31000000000000005), (2.25, 2, 0.699)]
+		FE model; G25L4mm_8t05mm_M_B3:
+			name: G25L4mm_8t05mm_M_B3
+			directory: run_G25L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G25L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.25), (2.25, 2, 0.759)]
+		FE model; G27L4mm_8t05mm_M_B3:
+			name: G27L4mm_8t05mm_M_B3
+			directory: run_G27L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G27L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.19000000000000006), (2.25, 2, 0.819)]
+		FE model; G29L4mm_8t05mm_M_B3:
+			name: G29L4mm_8t05mm_M_B3
+			directory: run_G29L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G29L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.13), (2.25, 2, 0.879)]
+		FE model; G31L4mm_8t05mm_M_B3:
+			name: G31L4mm_8t05mm_M_B3
+			directory: run_G31L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G31L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.07000000000000006), (2.25, 2, 0.939)]
+		FE model; G33L4mm_8t05mm_M_B3:
+			name: G33L4mm_8t05mm_M_B3
+			directory: run_G33L4mm_8t05mm_M_B3
+			laser: 1_AM_laser_G33L4mm_8t05mm_M.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-2.25, -2, -0.010000000000000009), (2.25, 2, 0.999)]
+		FE model; G01L4mm_8t05mm_CS_B3:
+			name: G01L4mm_8t05mm_CS_B3
+			directory: run_G01L4mm_8t05mm_CS_B3
+			laser: 1_AM_laser_G01L4mm_8t05mm_CS.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-4.0, -2, -0.97), (0.5, 2, 0.039)]
+		FE model; G05L4mm_8t05mm_CS_B3:
+			name: G05L4mm_8t05mm_CS_B3
+			directory: run_G05L4mm_8t05mm_CS_B3
+			laser: 1_AM_laser_G05L4mm_8t05mm_CS.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-4.0, -2, -0.85), (0.5, 2, 0.159)]
+		FE model; G09L4mm_8t05mm_CS_B3:
+			name: G09L4mm_8t05mm_CS_B3
+			directory: run_G09L4mm_8t05mm_CS_B3
+			laser: 1_AM_laser_G09L4mm_8t05mm_CS.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-4.0, -2, -0.73), (0.5, 2, 0.279)]
+		FE model; G13L4mm_8t05mm_CS_B3:
+			name: G13L4mm_8t05mm_CS_B3
+			directory: run_G13L4mm_8t05mm_CS_B3
+			laser: 1_AM_laser_G13L4mm_8t05mm_CS.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-4.0, -2, -0.61), (0.5, 2, 0.399)]
+		FE model; G17L4mm_8t05mm_CS_B3:
+			name: G17L4mm_8t05mm_CS_B3
+			directory: run_G17L4mm_8t05mm_CS_B3
+			laser: 1_AM_laser_G17L4mm_8t05mm_CS.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-4.0, -2, -0.49), (0.5, 2, 0.519)]
+		FE model; G21L4mm_8t05mm_CS_B3:
+			name: G21L4mm_8t05mm_CS_B3
+			directory: run_G21L4mm_8t05mm_CS_B3
+			laser: 1_AM_laser_G21L4mm_8t05mm_CS.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-4.0, -2, -0.37), (0.5, 2, 0.639)]
+		FE model; G25L4mm_8t05mm_CS_B3:
+			name: G25L4mm_8t05mm_CS_B3
+			directory: run_G25L4mm_8t05mm_CS_B3
+			laser: 1_AM_laser_G25L4mm_8t05mm_CS.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-4.0, -2, -0.25), (0.5, 2, 0.759)]
+		FE model; G29L4mm_8t05mm_CS_B3:
+			name: G29L4mm_8t05mm_CS_B3
+			directory: run_G29L4mm_8t05mm_CS_B3
+			laser: 1_AM_laser_G29L4mm_8t05mm_CS.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-4.0, -2, -0.13), (0.5, 2, 0.879)]
+		FE model; G33L4mm_8t05mm_CS_B3:
+			name: G33L4mm_8t05mm_CS_B3
+			directory: run_G33L4mm_8t05mm_CS_B3
+			laser: 1_AM_laser_G33L4mm_8t05mm_CS.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-4.0, -2, -0.010000000000000009), (0.5, 2, 0.999)]
+		FE model; G01L4mm_8t05mm_CE_B3:
+			name: G01L4mm_8t05mm_CE_B3
+			directory: run_G01L4mm_8t05mm_CE_B3
+			laser: 1_AM_laser_G01L4mm_8t05mm_CE.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-0.5, -2, -0.97), (4.0, 2, 0.039)]
+		FE model; G03L4mm_8t05mm_CE_B3:
+			name: G03L4mm_8t05mm_CE_B3
+			directory: run_G03L4mm_8t05mm_CE_B3
+			laser: 1_AM_laser_G03L4mm_8t05mm_CE.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-0.5, -2, -0.91), (4.0, 2, 0.09899999999999999)]
+		FE model; G07L4mm_8t05mm_CE_B3:
+			name: G07L4mm_8t05mm_CE_B3
+			directory: run_G07L4mm_8t05mm_CE_B3
+			laser: 1_AM_laser_G07L4mm_8t05mm_CE.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-0.5, -2, -0.79), (4.0, 2, 0.219)]
+		FE model; G11L4mm_8t05mm_CE_B3:
+			name: G11L4mm_8t05mm_CE_B3
+			directory: run_G11L4mm_8t05mm_CE_B3
+			laser: 1_AM_laser_G11L4mm_8t05mm_CE.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-0.5, -2, -0.67), (4.0, 2, 0.33899999999999997)]
+		FE model; G15L4mm_8t05mm_CE_B3:
+			name: G15L4mm_8t05mm_CE_B3
+			directory: run_G15L4mm_8t05mm_CE_B3
+			laser: 1_AM_laser_G15L4mm_8t05mm_CE.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-0.5, -2, -0.55), (4.0, 2, 0.45899999999999996)]
+		FE model; G19L4mm_8t05mm_CE_B3:
+			name: G19L4mm_8t05mm_CE_B3
+			directory: run_G19L4mm_8t05mm_CE_B3
+			laser: 1_AM_laser_G19L4mm_8t05mm_CE.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-0.5, -2, -0.43000000000000005), (4.0, 2, 0.579)]
+		FE model; G23L4mm_8t05mm_CE_B3:
+			name: G23L4mm_8t05mm_CE_B3
+			directory: run_G23L4mm_8t05mm_CE_B3
+			laser: 1_AM_laser_G23L4mm_8t05mm_CE.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-0.5, -2, -0.31000000000000005), (4.0, 2, 0.699)]
+		FE model; G27L4mm_8t05mm_CE_B3:
+			name: G27L4mm_8t05mm_CE_B3
+			directory: run_G27L4mm_8t05mm_CE_B3
+			laser: 1_AM_laser_G27L4mm_8t05mm_CE.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-0.5, -2, -0.19000000000000006), (4.0, 2, 0.819)]
+		FE model; G31L4mm_8t05mm_CE_B3:
+			name: G31L4mm_8t05mm_CE_B3
+			directory: run_G31L4mm_8t05mm_CE_B3
+			laser: 1_AM_laser_G31L4mm_8t05mm_CE.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-0.5, -2, -0.07000000000000006), (4.0, 2, 0.939)]
+		FE model; G33L4mm_8t05mm_CE_B3:
+			name: G33L4mm_8t05mm_CE_B3
+			directory: run_G33L4mm_8t05mm_CE_B3
+			laser: 1_AM_laser_G33L4mm_8t05mm_CE.inp
+			batch_size: [10000.0, 10000.0, 10000.0]
+			batch_weight: [1, 1, 1]
+			space_subset: [(-0.5, -2, -0.010000000000000009), (4.0, 2, 0.999)]

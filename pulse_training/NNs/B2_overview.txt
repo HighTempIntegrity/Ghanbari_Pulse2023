@@ -1,0 +1,89 @@
+Script settings
+	seed: 128
+	plot_theme: notebook
+	csv_root: FE_CSV
+	pickle_root: FE_PICKLE_TRN
+	sample_root: SMP_PICKLE
+	laser_root: FE_LASER
+	save_FE_data: True
+	save_sampled_data: True
+	source_FE_data: pk_file
+	source_sampled_data: pk_file
+	time_file: 9_time_pulse.log
+	overview_file: 9_overview.txt
+	device_type: cuda
+	reproducible: True
+	plot_notebook: 9_jpy_plots_ensemble.ipynb
+FE Sampler properties
+	target_FE_models: ['G00L8mm_1t2mm']
+	type: contour
+	time_subset: [(1e-06, 1000.0)]
+	space_subset: []
+	LT_range: []
+	test_ratio: 0.2
+	max_batch_size: 5000000.0
+	contour:
+		levels: [[30]]
+		aliasing_factor: [1, 1]
+		batch_size: [180000.0, 300000.0]
+Network architecture
+	model_type: pulse
+	hidden_layers: 6
+	neurons: 24
+	activation: tanh
+	last_act: softplus
+	weight_seed: 128
+	pulse_length: 0.08
+	scale_type: constant
+	multi_model: False
+	time_filter:
+		cutoff: True
+		cutoff_start: -2e-05
+	space_filter:
+		x_dis: 2
+		y_dis: 2
+		z_dis: 1.5
+		cutoff: False
+		cutoff_value: 0.1
+Loss function properties
+	loss_type: MSE
+	model_evaluation_type: internal
+	model_type: pulse
+	reg_power: 2
+	reg_factor: 0
+	ysymm:
+		factor: 4
+		x_bounds: [-2.0, 2.0]
+		z_bounds: [-1.0, 0.0]
+		t_bounds: [0.0, 1.0]
+		points_num: 10000.0
+		seed: 128
+Optimizer properties
+	algorithm: LBFGS
+	LBFGS:
+		learning_rate: 1
+		tolerance_grad: 1e-05
+		max_iter: 100
+	drop_last_batch: True
+	epochs: 250
+	batch_num: 4
+	max_loss_jump: 5
+	min_loss_change: 1e-10
+	scheduler_gamma: 0.8
+	patience: 6
+	save_dir_name: pulse
+Restart options
+	restart_folder: []
+	load_model: True
+	load_optimizer: False
+Rounding precision
+	time: 8
+	space: 7
+Geometry training info
+	geom_training: False
+	pulse_tag: P00
+	aliasing_factor: [1, 5]
+	template_batch_size: [20000.0, 5000.0, 5000.0]
+	layers_M: [1]
+	layers_CS: []
+	layers_CE: []

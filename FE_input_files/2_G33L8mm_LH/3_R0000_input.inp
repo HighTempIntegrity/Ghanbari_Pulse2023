@@ -1,0 +1,147 @@
+*Heading
+*Preprint, echo=NO, model=NO, history=NO, contact=NO
+** 
+** Part and Assembly
+** 
+*Include,input=1_mesh_34LT15_om80x70.inp
+** 
+** Materials
+** 
+*Include,input=1_material_constMS.inp
+**
+** Table Types
+**
+*Include,input=1_AM_tableTypes.inp
+**
+** Event Series
+**
+*Include,input=1_AM_eventSeries.inp
+**
+** Table Collections
+**
+*Include,input=1_AM_tableCollections.inp
+** 
+** Predefined Fields
+** 
+** Name: Predefined Field-T0   Type: Temperature
+*Initial Conditions, type=TEMPERATURE
+Set-all, 25.
+** 
+** Steps
+** 
+** Deposition 0
+*Step, name=Step_D0000, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Heat Transfer, end=PERIOD, deltmx=2000.
+13.0, 13.0, 1e-3, 13.0, 
+*Activate Elements , Activation = "__AM-Model_Material_Source_EPA__"
+"ABQ_AM_Table_Collection-Material"
+*DFLUX
+Set-print , MBFNU , 1 , "ABQ_AM_Table_Collection-Power"
+*Boundary
+Set-stem-bottom, 11, 11, 25.
+*Output, field, frequency=1
+*Node Output
+NT, 
+*End Step
+** Deposition 1
+*Step, name=Step_D0001, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 2
+*Step, name=Step_D0002, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 3
+*Step, name=Step_D0003, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 4
+*Step, name=Step_D0004, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 5
+*Step, name=Step_D0005, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 6
+*Step, name=Step_D0006, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 7
+*Step, name=Step_D0007, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 8
+*Step, name=Step_D0008, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 9
+*Step, name=Step_D0009, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 10
+*Step, name=Step_D0010, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 11
+*Step, name=Step_D0011, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 12
+*Step, name=Step_D0012, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 13
+*Step, name=Step_D0013, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 14
+*Step, name=Step_D0014, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 15
+*Step, name=Step_D0015, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 16
+*Step, name=Step_D0016, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 17
+*Step, name=Step_D0017, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 18
+*Step, name=Step_D0018, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 19
+*Step, name=Step_D0019, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 20
+*Step, name=Step_D0020, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 21
+*Step, name=Step_D0021, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 22
+*Step, name=Step_D0022, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 23
+*Step, name=Step_D0023, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 24
+*Step, name=Step_D0024, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 25
+*Step, name=Step_D0025, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 26
+*Step, name=Step_D0026, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 27
+*Step, name=Step_D0027, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 28
+*Step, name=Step_D0028, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 29
+*Step, name=Step_D0029, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 30
+*Step, name=Step_D0030, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 31
+*Step, name=Step_D0031, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 32
+*Step, name=Step_D0032, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 33
+*Step, name=Step_D0033, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp
+** Deposition 34
+*Step, name=Step_D0034, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Include,input=2_step_deposition.inp

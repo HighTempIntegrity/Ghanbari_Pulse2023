@@ -1,0 +1,40 @@
+*Step, name=Step_print, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Heat Transfer, end=PERIOD, deltmx=2000.
+57.15e-6, 0.0100584, 1e-10, 1e-3, 
+*DFLUX
+Set-all , MBFNU , 1 , "ABQ_AM_Table_Collection-Power"
+** 
+** BOUNDARY CONDITIONS
+** 
+** Name: BC-sink Type: Temperature
+*Boundary
+Set-stem-bottom, 11, 11, 25.
+** 
+** FIELD OUTPUT: F-Output-NT
+** 
+*Output, field, time interval=114.3e-6
+*Node Output
+NT, 
+*End Step
+** ---------------------------------------------------------------------
+*Step, name=Step_cool_slow, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Heat Transfer, end=PERIOD, deltmx=2000.
+114.3e-6, 0.17145, 1e-6, 1.143e-3, 
+** 
+** FIELD OUTPUT: F-Output-NT
+** 
+*Output, field, frequency=1
+*Node Output
+NT
+*End Step
+** ---------------------------------------------------------------------
+*Step, name=Step_cool_end, nlgeom=NO, extrapolation=PARABOLIC, inc=100000, unsymm=YES
+*Heat Transfer, end=PERIOD, deltmx=2000.
+1.143e-3, 13.0, 1e-6, 1, 
+** 
+** FIELD OUTPUT: F-Output-NT
+** 
+*Output, field, frequency=1
+*Node Output
+NT
+*End Step
